@@ -1,0 +1,134 @@
+/* General Page Styling */
+.view-tasks-container {
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  overflow-y: auto;
+}
+
+h1 {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tasks Grouped by Priority */
+.tasks-by-priority {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-height: 80vh; /* Prevents excessive height */
+  overflow-y: auto; /* Allows scrolling */
+  padding-bottom: 20px;
+}
+
+.priority-group {
+  flex: 1;
+  min-width: 300px;
+  max-width: 350px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+  max-height: 78vh; /* Adjust max-height */
+  overflow-y: auto;
+}
+
+
+/* Priority Heading Colors */
+.priority-group h2 {
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.priority-group:nth-child(1) h2 {
+  background-color: #3cb371; /* Green for Low */
+}
+
+.priority-group:nth-child(2) h2 {
+  background-color: #ffa500; /* Orange for Medium */
+}
+
+.priority-group:nth-child(3) h2 {
+  background-color: #dc3545; /* Red for High */
+}
+
+/* Task Items */
+.task-item {
+  background: #f9f9f9;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+}
+
+.task-item:hover {
+  transform: translateY(-5px);
+  background: #d5af66;
+}
+
+.task-item h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.task-item p {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tasks-by-priority {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.completed-group {
+  background-color: #dfffd6;
+  border: 2px dashed #28a745;
+  padding: 10px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.task-item.completed {
+  background-color: #a3e4a5;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.task-item:active, 
+.task-item.dragging {
+  background: #d5af66;
+  color: white;
+  opacity: 0.9;
+  transform: scale(1.05);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}

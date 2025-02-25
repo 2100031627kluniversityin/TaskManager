@@ -1,0 +1,139 @@
+.calendar-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  color: #000;
+  margin: 0 auto;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Calendar Container */
+.calendar-container {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  color: #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  position: sticky; /* Make the calendar sticky */
+  top: 20px; /* Distance from the top */
+  z-index: 10; /* Ensure it stays above other content */
+}
+
+/* React Calendar Styling */
+.react-calendar {
+  width: 100%;
+  border: none;
+  font-family: Arial, sans-serif;
+  color: #000;
+}
+
+/* Ensure calendar dates are black */
+.react-calendar__tile {
+  color: black !important;
+}
+
+/* Ensure selected date text remains visible */
+.react-calendar__tile--active {
+  background-color: #be8ecb;
+  color: rgb(0, 0, 0) !important;
+}
+
+/* Ensure today's date is visible */
+.react-calendar__tile--now {
+  background-color: #be79d1;
+  color: black !important;
+}
+
+
+.react-calendar__tile--active {
+  background-color: #b164c6;
+  color: rgb(0, 0, 0);
+}
+
+.react-calendar__tile--now {
+  background-color: #a71fcc;
+  color: #000;
+}
+.react-calendar__navigation button {
+  color: #c469e5;
+  font-size: 1em;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.react-calendar__navigation button:hover {
+  color: #9022e5;
+}
+.highlight {
+  background-color: #d64cd8;
+  border-radius: 10%;
+}
+
+/* Tasks Section */
+.tasks-on-date {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 300px; /* Fixed height for scrollable area */
+  overflow-y: auto; /* Make tasks scrollable */
+}
+
+.tasks-on-date h3 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.tasks-on-date ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tasks-on-date ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two tasks per row */
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Individual Task Box */
+.tasks-on-date li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.tasks-on-date h4 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #007bff;
+}
+
+.tasks-on-date p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* No Tasks Message */
+.tasks-on-date p.no-tasks {
+  text-align: center;
+  color: #888;
+}

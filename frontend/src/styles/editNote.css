@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-note-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 40px;
+  border-radius: 0; /* Removes rounded corners for fullscreen */
+  box-shadow: none; /* Removes box shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edit-note-container h1 {
+  text-align: center;
+  color: #333;
+}
+
+.edit-note-container form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+}
+
+.edit-note-container label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.edit-note-container input,
+.edit-note-container textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.edit-note-container button {
+  margin-top: 15px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.edit-note-container button[type="submit"] {
+  background: #28a745;
+  color: white;
+}
+
+.edit-note-container button[type="button"] {
+  background: #dc3545;
+  color: white;
+  margin-top: 10px;
+}

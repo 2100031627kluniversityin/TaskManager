@@ -1,0 +1,247 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32); /* Green gradient */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin: 10px 0;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.admin-users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #F8E7F6, #DD88CF);
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  text-align: center;
+  padding: 40px 20px;
+  overflow-y: auto; /* Enables scrolling */
+  position: relative;
+}
+
+/* Sticky Header */
+.admin-users h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInDown 0.8s ease-in-out;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(135deg, #F8E7F6, #DD88CF);
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+  border-bottom: 2px solid #ccc;
+}
+
+/* Grid Layout for Users */
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 80vh; /* Limits height */
+  overflow-y: auto; /* Allows scrolling */
+  padding-bottom: 20px;
+  margin:20px
+}
+
+/* User Card - Fixed Height */
+.user-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  overflow: hidden;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.user-card h3 {
+  font-size: 1.5rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* Task Box - Scrollable */
+.task-box {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 180px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc #f4f4f4;
+}
+
+/* Styling the scrollbar */
+.task-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-box::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.task-box::-webkit-scrollbar-track {
+  background: #f4f4f4;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Task Priority Styles */
+.priority-high {
+  color: red;
+  font-weight: bold;
+}
+
+.priority-medium {
+  color: orange;
+}
+
+.priority-low {
+  color: green;
+}
+
+.priority {
+  display: block;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Task List */
+.task-box h4 {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.task-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.task-box li {
+  font-size: 1rem;
+  color: #444;
+  padding: 8px;
+  background: #f4f4f4;
+  border-radius: 6px;
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+.task-box li::before {
+  content: "📌";
+  margin-right: 8px;
+}
+
+/* No Tasks Message */
+.task-box p {
+  color: #888;
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: #e53935;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.delete-btn:hover {
+  background: #c62828;
+  transform: scale(1.07);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.delete-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade-in Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.delete-task-icon {
+  cursor: pointer;
+}
+
+.delete-task-icon:hover {
+  transform: scale(1.2);
+}

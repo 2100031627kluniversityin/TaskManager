@@ -1,0 +1,101 @@
+/* Full-Screen Feedback Form */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedback-form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(90, 70, 50, 0.8);
+}
+
+.feedback-form h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-form form {
+  width: 100%;
+  max-width: 500px;
+  background: #4B164C;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedback-form textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  color: #090909;
+  resize: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.feedback-form textarea::placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.feedback-form textarea:focus {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.feedback-form button .submit {
+  margin-top: 15px;
+  padding: 14px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff758c;
+  background-color: #ff0000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.feedback-form button:hover {
+  background: #cf1a1a;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .feedback-form form {
+    max-width: 90%;
+  }
+
+  .feedback-form h2 {
+    font-size: 22px;
+  }
+
+  .feedback-form textarea {
+    min-height: 120px;
+    font-size: 14px;
+  }
+
+  .feedback-form button {
+    font-size: 16px;
+  }
+}
