@@ -15,10 +15,10 @@ const ManageNotes = () => {
       const res = await axios.get("http://localhost:5000/api/notes/admin", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log("API Response:", res.data); // Debugging
+      console.log("API Response:", res.data);
       setNotes(res.data);
     } catch (error) {
-      console.error("Error fetching notes:", error); // Debugging
+      console.error("Error fetching notes:", error); 
       toast.error("Error fetching notes");
     } finally {
       setLoading(false);
@@ -36,7 +36,7 @@ const ManageNotes = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Note deleted successfully");
-      fetchNotes(); // Refresh the list
+      fetchNotes(); 
     } catch (error) {
       toast.error("Error deleting note", error);
     }

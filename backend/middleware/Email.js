@@ -26,5 +26,22 @@ const sendVerificationEmail = async (email, verificationToken) => {
     console.error("Error sending verification email:", err);
   }
 };
+const sendPasswordResetEmail = async (email, resetToken) => {
+  try {
+    const resetLink = `http://localhost:5173/reset-password/${resetToken}`;
+    await transporter.sendMail({
+      from: `"TaskManager" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Password Reset Request",
+      html: `
+        <p>Click <a href="${resetLink}">here</a> to reset your password.</p>
+        <p>This link will expire in 15 minutes.</p>
+      `,
+    });
+    console.log("✅ Password reset email sent successfully.");
+  } catch (err) {
+    console.error("❌ Error sending password reset email:", err);
+  }
+};
 
-module.exports = { sendVerificationEmail };
+module.exports = { sendVerificationEmail, sendPasswordResetEmail };

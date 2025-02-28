@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "../styles/feedback.css";
 import '../styles/feedbackform.css'
-import Navbar from "../pages/Navbar";
+import Navbar from "./Navbar";
 const FeedbackForm = () => {
   const [message, setMessage] = useState("");
 

@@ -50,7 +50,6 @@ const TaskCalendar = () => {
 
   const tileClassName = ({ date }) => {
     const currentDate = new Date(date).setHours(0, 0, 0, 0);
-    const today = new Date().setHours(0, 0, 0, 0);
 
     const hasIncompleteTasks = tasks.some(
       (task) =>
@@ -58,20 +57,7 @@ const TaskCalendar = () => {
         !task.completed
     );
 
-    const hasOverdueTasks = tasks.some(
-      (task) =>
-        new Date(task.deadline).setHours(0, 0, 0, 0) < today && !task.completed
-    );
-
-    if (hasOverdueTasks && currentDate < today) {
-      return "overdue"; // Highlight overdue dates
-    }
-
-    if (hasIncompleteTasks) {
-      return "highlight"; // Highlight dates with incomplete tasks
-    }
-
-    return null;
+    return hasIncompleteTasks ? "highlight" : null;
   };
 
   return (

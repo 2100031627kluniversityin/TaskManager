@@ -16,6 +16,8 @@ import EditNote from "./pages/EditNote";
 import TaskCalendar from "./pages/TaskCalendar";
 import CalendarPage from "./pages/CalendarPage";
 import VerifyEmail from "./pages/VerifyEmail";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import { ToastContainer } from "react-toastify";
 import Notes from "./pages/Notes";
 
@@ -29,6 +31,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />

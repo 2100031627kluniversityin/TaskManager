@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import HomeNavbar from "./HomeNavbar";
+import HomeNavbar from "../components/HomeNavbar";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/register.css";
 
@@ -10,12 +10,18 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false); 
   const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    setLoading(true); // Start loading
+    setLoading(true); 
     try {
       await axios.post("http://localhost:5000/api/auth/register", {
         username,
@@ -29,7 +35,7 @@ const Register = () => {
     } catch (err) {
       toast.error(err.response?.data?.message || "Error registering user.");
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false); 
     }
   };
 

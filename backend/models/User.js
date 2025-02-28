@@ -5,9 +5,9 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   isAdmin: { type: Boolean, default: false },
-  isVerified: { type: Boolean, default: false }, // New field
-  verificationToken: { type: String }, // New field
-  verificationTokenExpiresAt: { type: Date }, // New field
+  isVerified: { type: Boolean, default: false }, 
+  verificationToken: { type: String }, 
+  verificationTokenExpiresAt: { type: Date },
 });
 
 module.exports = mongoose.model("User", UserSchema);

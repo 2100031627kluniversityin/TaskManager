@@ -56,8 +56,11 @@
 }
 
 .react-calendar__tile--now {
-  background-color: #a71fcc;
-  color: #000;
+  background-color: #ff9800 !important; 
+  color: white !important;
+  font-weight: bold;
+  border-radius: 50%; 
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.8); 
 }
 .react-calendar__navigation button {
   color: #c469e5;

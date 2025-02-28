@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify"; // Import Toastify
-import "react-toastify/dist/ReactToastify.css"; // Import styles
+import { ToastContainer, toast } from "react-toastify"; 
+import "react-toastify/dist/ReactToastify.css"; 
 import "../styles/adminDashboard.css";
 import { useEffect } from "react";
 const AdminDashboard = () => {
@@ -13,21 +13,21 @@ const AdminDashboard = () => {
 
     toast.success("Logged out successfully!", {
       position: "top-right",
-      autoClose: 2000,// Closes after 2 seconds
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: false,
       draggable: true,
     });
 
-    // Redirect after 2 seconds (allows toast to display)
     setTimeout(() => {
       navigate("/login");
     }, 1000);
   };
   useEffect(() => {
     if (!isAdmin) {
-      navigate("/login"); // Redirect non-admins to login
+      navigate("/login"); 
+      navigate("/");
     }
   }, [isAdmin, navigate]);
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "../styles/notes.css";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 
 const Notes = () => {
   const [notes, setNotes] = useState([]);

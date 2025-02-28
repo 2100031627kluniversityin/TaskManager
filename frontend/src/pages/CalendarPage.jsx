@@ -1,5 +1,5 @@
 import TaskCalendar from "./TaskCalendar";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import "../styles/CalendarPage.css";
 
 const CalendarPage = () => {

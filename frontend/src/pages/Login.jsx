@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/login.css";
-import HomeNavbar from "./HomeNavbar";
+import HomeNavbar from "../components/HomeNavbar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -79,6 +79,10 @@ const Login = () => {
             Login
           </button>
         </form>
+
+        <p className="forgot-password-text">
+          <Link to="/forgot-password">Forgot Password?</Link>
+        </p>
         <p className="signup-text">
           New here? <Link to="/register">Sign up</Link>
         </p>

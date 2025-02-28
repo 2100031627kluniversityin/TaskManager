@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/dashboard.css";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
   const [taskData, setTaskData] = useState({
@@ -13,15 +13,21 @@ const Dashboard = () => {
   });
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState(""); // State for search input
+  const [searchQuery, setSearchQuery] = useState(""); 
 
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+      navigate("/");
+    }
+  }, [token, navigate]);
 
-  // Fetch tasks
   const fetchTasks = useCallback(async () => {
     if (!token) {
       navigate("/login");
+      navigate("/")
       return;
     }
 
@@ -33,7 +39,6 @@ const Dashboard = () => {
         }
       );
 
-      // Filter out completed tasks
       const activeTasks = res.data.filter((task) => !task.completed);
       setTasks(activeTasks);
     } catch (error) {
@@ -41,7 +46,7 @@ const Dashboard = () => {
     } finally {
       setLoading(false);
     }
-  }, [token, navigate, searchQuery]); // Include searchQuery in dependencies
+  }, [token, navigate, searchQuery]); 
 
   useEffect(() => {
     fetchTasks();
@@ -97,7 +102,7 @@ const Dashboard = () => {
 
   const isTaskOverdue = (deadline) => {
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // Set time to 00:00:00.000 for accurate comparison
+    today.setHours(0, 0, 0, 0);
     const taskDeadline = new Date(deadline);
     taskDeadline.setHours(0, 0, 0, 0);
     return taskDeadline < today;
@@ -113,7 +118,6 @@ const Dashboard = () => {
     });
   };
 
-  // Highlight search keyword in text
   const highlightText = (text, keyword) => {
     if (!keyword) return text;
 

@@ -4,7 +4,6 @@ const auth = require("../middleware/auth");
 
 const router = express.Router();
 
-// Create a note
 router.post("/", auth, async (req, res) => {
   try {
     const { title, content } = req.body;
@@ -22,7 +21,6 @@ router.post("/", auth, async (req, res) => {
   }
 });
 
-// Get all notes for the authenticated user with search functionality
 router.get("/", auth, async (req, res) => {
   try {
     const { search } = req.query;
@@ -43,7 +41,6 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-// Get all notes for admin
 router.get("/admin", auth, async (req, res) => {
   try {
     if (!req.user.isAdmin) {
@@ -59,7 +56,6 @@ router.get("/admin", auth, async (req, res) => {
   }
 });
 
-// Get a single note by ID
 router.get("/:id", auth, async (req, res) => {
   try {
     const note = await Note.findById(req.params.id);
@@ -70,13 +66,12 @@ router.get("/:id", auth, async (req, res) => {
   }
 });
 
-// Update a note (User can update their own note)
 router.put("/:id", auth, async (req, res) => {
   try {
     const { title, content } = req.body;
 
     const note = await Note.findOneAndUpdate(
-      { _id: req.params.id, userId: req.user.id }, // Ensure the note belongs to the user
+      { _id: req.params.id, userId: req.user.id }, 
       { title, content, updatedAt: Date.now() },
       { new: true }
     );
@@ -93,12 +88,11 @@ router.put("/:id", auth, async (req, res) => {
   }
 });
 
-// Delete a note (User can delete their own note)
 router.delete("/:id", auth, async (req, res) => {
   try {
     const note = await Note.findOneAndDelete({
       _id: req.params.id,
-      userId: req.user.id, // Ensure the note belongs to the user
+      userId: req.user.id,
     });
 
     if (!note) {
@@ -113,7 +107,6 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
-// Update a note (Admin can update any note)
 router.put("/admin/:id", auth, async (req, res) => {
   try {
     if (!req.user.isAdmin) {
@@ -138,7 +131,6 @@ router.put("/admin/:id", auth, async (req, res) => {
   }
 });
 
-// Delete a note (Admin can delete any note)
 router.delete("/admin/:id", auth, async (req, res) => {
   try {
     if (!req.user.isAdmin) {

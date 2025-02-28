@@ -26,7 +26,6 @@ const AdminUsers = () => {
   }, []);
 
   const deleteUser = async (id) => {
-    // ✅ Show confirmation popup before deleting
     const result = await Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -44,10 +43,8 @@ const AdminUsers = () => {
           headers: { Authorization: `Bearer ${token}` },
         });
 
-        // ✅ Remove user from state
         setUsers(users.filter((user) => user._id !== id));
 
-        // ✅ Show success message
         Swal.fire("Deleted!", "User has been deleted.", "success");
       } catch (err) {
         console.error("Error deleting user:", err);

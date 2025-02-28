@@ -3,18 +3,16 @@ const nodemailer = require("nodemailer");
 const Task = require("../models/Task");
 const User = require("../models/User");
 
-// Email transporter
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
-  secure: false, // true for port 465, false for other ports
+  secure: false, 
   auth: {
-    user: process.env.EMAIL_USER, // Use environment variables
-    pass: process.env.EMAIL_PASSWORD, // Use environment variables
+    user: process.env.EMAIL_USER, 
+    pass: process.env.EMAIL_PASSWORD, 
   },
 });
 
-// Function to send reminder emails
 const sendReminderEmail = async (email, tasks) => {
   try {
     await transporter.sendMail({
@@ -43,26 +41,22 @@ const sendReminderEmail = async (email, tasks) => {
   }
 };
 
-// Function to fetch pending tasks for today and send reminders
 const sendReminders = async () => {
   try {
-    // Get today's date (start of the day)
     const todayStart = new Date();
-    todayStart.setHours(0, 0, 0, 0); // Set time to 00:00:00.000
+    todayStart.setHours(0, 0, 0, 0);
 
-    // Get today's date (end of the day)
     const todayEnd = new Date();
-    todayEnd.setHours(23, 59, 59, 999); // Set time to 23:59:59.999
+    todayEnd.setHours(23, 59, 59, 999); 
 
-    // Fetch all users with pending tasks for today
     const users = await User.find();
     for (const user of users) {
       const pendingTasks = await Task.find({
         assignedTo: user._id,
         completed: false,
         deadline: {
-          $gte: todayStart, // Tasks with deadlines >= today's start
-          $lte: todayEnd, // Tasks with deadlines <= today's end
+          $gte: todayStart, 
+          $lte: todayEnd, 
         },
       });
 
@@ -75,7 +69,6 @@ const sendReminders = async () => {
   }
 };
 
-// Schedule reminders at 10:20 AM and 6:00 PM
 cron.schedule("20 10 * * *", () => {
   console.log("Sending morning reminders at 10:20 AM");
   sendReminders();

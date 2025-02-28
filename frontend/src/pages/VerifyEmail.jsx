@@ -8,12 +8,12 @@ import "../styles/verifyEmail.css";
 const VerifyEmail = () => {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleVerify = async (e) => {
     e.preventDefault();
-    setLoading(true); // Start loading
+    setLoading(true); 
     try {
       await axios.post("http://localhost:5000/api/auth/verify-email", {
         email,
@@ -24,7 +24,7 @@ const VerifyEmail = () => {
     } catch (err) {
       toast.error(err.response?.data?.message || "Error verifying email.");
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false); 
     }
   };
 

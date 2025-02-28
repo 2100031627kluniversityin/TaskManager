@@ -3,24 +3,18 @@ import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import "../styles/viewTasks.css";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 
 const ViewTasks = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
-
-  // Fetch tasks from backend
   const fetchTasks = useCallback(async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/tasks", {
         headers: { Authorization: `Bearer ${token}` },
       });
-
-      // Get today's date in YYYY-MM-DD format
       const today = new Date().toISOString().split("T")[0];
-
-      // Filter tasks to include only those with today's deadline
       const todayTasks = res.data.filter(
         (task) => new Date(task.deadline).toISOString().split("T")[0] === today
       );
@@ -37,15 +31,12 @@ const ViewTasks = () => {
     fetchTasks();
   }, [fetchTasks]);
 
-  // Count tasks for today based on priority
   const taskCounts = { low: 0, medium: 0, high: 0 };
   tasks.forEach((task) => {
     if (!task.completed) {
       taskCounts[task.priority]++;
     }
   });
-
-  // Group today's tasks by priority and completion status
   const groupedTasks = tasks.reduce((acc, task) => {
     if (task.completed) {
       acc.completed = acc.completed || [];
@@ -58,8 +49,6 @@ const ViewTasks = () => {
     }
     return acc;
   }, {});
-
-  // Handle drag and drop
   const onDragEnd = async (result) => {
     const { source, destination } = result;
     if (!destination) return;
@@ -90,7 +79,6 @@ const ViewTasks = () => {
     }
   };
 
-  // Delete a completed task
   const deleteTask = async (taskId) => {
     try {
       await axios.delete(`http://localhost:5000/api/tasks/${taskId}`, {
