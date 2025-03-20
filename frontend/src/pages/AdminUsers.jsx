@@ -71,7 +71,7 @@ const AdminUsers = () => {
                       className={`priority-${task.priority.toLowerCase()}`}
                     >
                       <strong>{task.title}</strong> -{" "}
-                      {task.completed ? "✅ Completed" : "⏳ Pending"} <br />
+                      {task.completed ? "Completed" : "Pending"} <br />
                       <span className="priority">
                         Priority: {task.priority}
                       </span>

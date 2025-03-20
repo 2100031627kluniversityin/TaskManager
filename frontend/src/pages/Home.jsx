@@ -41,29 +41,29 @@ const Home = () => {
 
       {/* Features Section with Large Cards */}
       <section id="features" className="features">
-        <h2>🚀 Supercharged Task Management</h2>
+        <h2>Supercharged Task Management</h2>
         <div className="feature-container">
           <div className="feature-card">
-            <h3>📌 Task Overview</h3>
+            <h3>ask Overview</h3>
             <p>View all tasks in one place, sorted by priority and status.</p>
           </div>
           <div className="feature-card">
-            <h3>⏰ Manage Tasks Easily</h3>
+            <h3>Manage Tasks Easily</h3>
             <p>
               Create, update, and delete tasks effortlessly with titles,
               deadlines, and priorities.
             </p>
           </div>
           <div className="feature-card">
-            <h3>📊 Task Management</h3>
+            <h3>Task Management</h3>
             <p>Drag and drop tasks to reorder or mark them as complete.</p>
           </div>
           <div className="feature-card">
-            <h3>📅 Task Filtering</h3>
+            <h3>Task Filtering</h3>
             <p>Filter tasks by priority to focus on what’s important.</p>
           </div>
           <div className="feature-card">
-            <h3>🎯 Secure Access</h3>
+            <h3>Secure Access</h3>
             <p>Log in securely to access a personalized task list.</p>
           </div>
         </div>
@@ -71,7 +71,7 @@ const Home = () => {
 
       {/* Motivational Quotes Section */}
       <section id="quotes" className="quotes">
-        <h2>🌟 Stay Inspired</h2>
+        <h2>Stay Inspired</h2>
         <div className="quote-box">
           <p>
             It does not matter how slowly you go, as long as you do not stop
@@ -89,7 +89,7 @@ const Home = () => {
       </section>
 
       <section id="cta" className="cta-section">
-        <h2>📌 Take Control of Your Time</h2>
+        <h2>Take Control of Your Time</h2>
         <Link to="/register">
           <button className="cta-btn">Get Started Now</button>
         </Link>
@@ -97,7 +97,7 @@ const Home = () => {
 
       {/* Footer */}
       <footer className="footer">
-        <p>© Hello 😇</p>
+        <p>© Hello</p>
       </footer>
     </div>
   );

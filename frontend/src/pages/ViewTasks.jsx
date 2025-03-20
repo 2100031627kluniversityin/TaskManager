@@ -155,7 +155,7 @@ const ViewTasks = () => {
                     {...provided.droppableProps}
                     className="completed-group"
                   >
-                    <h2>Completed Tasks ✅</h2>
+                    <h2>Completed Tasks</h2>
                     {groupedTasks.completed?.length ? (
                       groupedTasks.completed.map((task, index) => (
                         <Draggable

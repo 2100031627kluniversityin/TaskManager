@@ -7,10 +7,8 @@ const {
 
 const router = express.Router();
 
-// Route to submit feedback
 router.post("/", auth, submitFeedback);
 
-// Route to get all feedback (Admin only)
 router.get("/", auth, getAllFeedback);
 
 module.exports = router;

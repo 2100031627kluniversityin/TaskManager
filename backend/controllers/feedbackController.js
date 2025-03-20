@@ -1,6 +1,5 @@
 const Feedback = require("../models/Feedback");
 
-// Submit feedback
 exports.submitFeedback = async (req, res) => {
   try {
     const { message } = req.body;
@@ -20,7 +19,6 @@ exports.submitFeedback = async (req, res) => {
   }
 };
 
-// Fetch all feedback (Admin only)
 exports.getAllFeedback = async (req, res) => {
   try {
     if (!req.user.isAdmin) {

@@ -16,9 +16,6 @@ const auth = async (req, res, next) => {
     }
 
     const user = await User.findById(decoded.id);
-
-    
-
     req.user = { id: decoded.id, isAdmin: decoded.isAdmin || false };
     next();
     
