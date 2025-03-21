@@ -24,14 +24,14 @@ const TaskCalendar = () => {
         });
 
         setTasks(res.data);
-        updateTasksOnDate(res.data, selectedDate); // Ensure tasks update immediately
+        updateTasksOnDate(res.data, selectedDate);
       } catch (error) {
         console.error("Error fetching tasks", error);
       }
     };
 
     fetchTasks();
-  }, [token, navigate, selectedDate]); // Include selectedDate as dependency
+  }, [token, navigate, selectedDate]);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);

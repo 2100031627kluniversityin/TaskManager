@@ -38,9 +38,9 @@ const sendPasswordResetEmail = async (email, resetToken) => {
         <p>This link will expire in 15 minutes.</p>
       `,
     });
-    console.log("✅ Password reset email sent successfully.");
+    console.log("Password reset email sent successfully.");
   } catch (err) {
-    console.error("❌ Error sending password reset email:", err);
+    console.error("Error sending password reset email:", err);
   }
 };
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import "../styles/login.css"; // Import the CSS file
+import "../styles/login.css"; 
 import HomeNavbar from "../components/HomeNavbar";
 const ResetPassword = () => {
   const { token } = useParams();
